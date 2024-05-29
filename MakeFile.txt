@@ -1,0 +1,16 @@
+CC = gcc
+CFLAGS = -Wall
+
+all: bank_simulation
+
+bank_simulation: main.o queue.o
+		$(CC) $(CFLAGS) -o bank_simulation main.o queue.o
+
+main.o: main.c queue.h
+		$(CC) $(CFLAGS) -c main.c
+
+queue.o: queue.c queue.h
+		$(CC) $(CFLAGS) -c fila.c
+
+clean:
+		rm -f *.o bank_simulation
